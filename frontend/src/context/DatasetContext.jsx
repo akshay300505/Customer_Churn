@@ -3,16 +3,10 @@ import { parseFileContent } from "../utils/fileParser";
 import { analyzeDataset } from "../utils/churnAnalytics";
 import { CURRENCIES, convertCurrency, formatCurrency } from "../utils/currency";
 import { downloadCsv, downloadExcel } from "../utils/exportUtils";
+import { DEFAULT_COMPANIES } from "../utils/companyConstants";
 
 const DatasetContext = createContext(null);
 
-// Professional enterprise organization workspaces (strictly NO demo companies)
-export const DEFAULT_COMPANIES = [
-  { id: "primary", name: "Primary Enterprise", industry: "Corporate / SaaS", tier: "Core Portfolio", code: "CORP", color: "bg-blue-600" },
-  { id: "global", name: "Global Operations", industry: "Multi-Region Enterprise", tier: "International Subscriptions", code: "GLOB", color: "bg-indigo-600" },
-  { id: "americas", name: "Americas Division", industry: "Regional Portfolio", tier: "Direct Accounts", code: "AMER", color: "bg-emerald-600" },
-  { id: "emea_apac", name: "EMEA & APAC Division", industry: "Cross-Border Services", tier: "Expansion Accounts", code: "APAC", color: "bg-purple-600" },
-];
 
 export const DatasetProvider = ({ children }) => {
   // 1. Navigation tab ('dashboard' | 'studio' | 'customers' | 'predictions' | 'guidance' | 'analytics' | 'reports' | 'settings')
